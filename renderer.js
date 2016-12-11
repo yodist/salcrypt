@@ -12,7 +12,7 @@ var subArray = [["a", "b"], ["b", "f"], ["c", "1"], ["d", "k"],
                 ["y", "9"], ["z", "n"], ["1", "r"], ["2", "e"],
                 ["3", "u"], ["4", "3"], ["5", "l"], ["6", "s"],
                 ["7", "w"], ["8", ","], ["9", "."], ["0", "o"],
-                [".", "z"], [",", "0"]];
+                [".", "z"], [",", "0"], [" ", " "]];
 
 
 app.controller('personCtrl', function($scope)
@@ -23,7 +23,7 @@ app.controller('personCtrl', function($scope)
     stringLength = tempPlain.length;
 
     for (var i = 0; i<stringLength; i++) {
-      for (var j = 0; j<38; j++) {
+      for (var j = 0; j<39; j++) {
         if(tempPlain.charAt(i) == subArray[j][0]) {
           tempCypher += subArray[j][1];
         }
@@ -32,4 +32,22 @@ app.controller('personCtrl', function($scope)
 
     $scope.cypherText = tempCypher;
   }
-}
+
+  $scope.subDecypher = function () {
+    tempCypher = "";
+    tempPlain = $scope.plainText;
+    stringLength = tempPlain.length;
+
+    for (var i = 0; i<stringLength; i++) {
+      for (var j = 0; j<39; j++) {
+        if(tempPlain.charAt(i) == subArray[j][1]) {
+          tempCypher += subArray[j][0];
+        }
+      }
+    }
+
+    $scope.cypherText = tempCypher;
+  }
+
+
+})
