@@ -236,6 +236,7 @@ app.controller('personCtrl', function($scope)
 
     }
 
+    if (tempCypher.charAt(stringLength-1) == "&") {tempCypher = tempCypher.slice(0, -1)};
     $scope.cypherText = tempCypher;
 
   }
