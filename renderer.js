@@ -89,7 +89,14 @@ app.controller('personCtrl', function($scope)
 
     tempCypher += tempPlain.charAt(pointerA);
 
-    if (pointerA+ (collumnNum -1) <= stringLength && pointerA > dichead) {
+    if ((stringLength + 1)%4 == 0) {
+      if (pointerA+collumnNum > stringLength) {
+        pointerB += 1;
+        pointerA = pointerB;
+      }
+      else pointerA += collumnNum;
+      }
+    else { if (pointerA+ (collumnNum -1) <= stringLength && pointerA > dichead) {
       pointerA += (collumnNum - 1);
     }
     else if(pointerA+collumnNum > stringLength) {
@@ -98,6 +105,7 @@ app.controller('personCtrl', function($scope)
     }
     else {
       pointerA += collumnNum;
+    }
     }
 
     endofString += 1;
@@ -117,22 +125,7 @@ app.controller('personCtrl', function($scope)
 
     for (var i=0; i<stringLength; i+=6){
       for (var j=0; j<6; j++){
-        tempCypher += tempPlain.charAt(order[j]+i)
-      }
-
-    }
-
-    $scope.cypherText = tempCypher;
-  }
-
-  $scope.permutationDecypher = function() {
-  order = [5,1,3,2,4,0];
-  tempCypher = "";
-  tempPlain = $scope.plainText;
-  stringLength = tempPlain.length;
-
-    for (var i=0; i<stringLength; i+=6){
-      for (var j=0; j<6; j++){
+        if (tempPlain.charAt(j) == " ")
         tempCypher += tempPlain.charAt(order[j]+i)
       }
 
@@ -180,13 +173,39 @@ app.controller('personCtrl', function($scope)
   stringLength = tempPlain.length;
   pointerA = 0;
   pointerB = 0;
-  if(tempPlain.charAt(stringLength) == "N"){
-    tempCypher += tempPlain.charAt(stringLength -2);
-    for(var i = 1; i < stringLength -2; i++){
-      tempCypher += tempPlain.charAt(i);
+  var charPosTemp;
+  var tempWord = "";
+  // if(tempPlain.charAt(stringLength-1) == "N"){
+  //   tempCypher += tempPlain.charAt(stringLength -2);
+  //   for(var i = 1; i < stringLength -2; i++){
+  //     tempCypher += tempPlain.charAt(i);
+  //     console.log(tempPlain.charAt(i));
+  //   }
+  // }
+
+  for (var i=0; i<stringLength; i++) {
+    if (tempPlain.charAt(i) == "A"){
+      tempWord = tempWord.slice(0, -1);
     }
+    else if(tempPlain.charAt(i) == "N"){
+      charTemp = tempPlain.charAt(i-2);
+      tempCypher = tempCypher + " "+ charTemp + tempWord;
+      tempWord = "";
+      i += 1;
+    }
+    else if (tempPlain.charAt(i) == "I") {
+      tempWord = tempWord.slice(0, -1);
+      charTemp = tempPlain.charAt(i-1);
+      tempCypher = tempCypher + " "+ charTemp + tempWord;
+      tempWord = "";
+      i += 1;
+    }
+    else {
+        tempWord += tempPlain.charAt(i);
+    }
+
   }
-   $scope.cypherText = tempCypher;
+    $scope.cypherText = tempCypher;
   }
 
 
@@ -236,7 +255,6 @@ app.controller('personCtrl', function($scope)
 
     }
 
-    if (tempCypher.charAt(stringLength-1) == "&") {tempCypher = tempCypher.slice(0, -1)};
     $scope.cypherText = tempCypher;
 
   }
