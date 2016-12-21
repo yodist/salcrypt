@@ -205,13 +205,31 @@ app.controller('personCtrl', function($scope)
       charTemp = tempPlain.charAt(i);
     }
     else if(tempPlain.charAt(i) == " "){
-        if (charTemp == ("a" || "i" || "e" || "u" || "o" || 0 || 2 || 4 || 6 || 8)) tempCypher += charTemp + "I ";
+        if (charTemp == "a") tempCypher += charTemp + "I ";
+        else if (charTemp == "i") tempCypher += charTemp + "I ";
+        else if (charTemp == "u") tempCypher += charTemp + "I ";
+        else if (charTemp == "e") tempCypher += charTemp + "I ";
+        else if (charTemp == "o") tempCypher += charTemp + "I ";
+        else if (charTemp == "0") tempCypher += charTemp + "I ";
+        else if (charTemp == "2") tempCypher += charTemp + "I ";
+        else if (charTemp == "4") tempCypher += charTemp + "I ";
+        else if (charTemp == "6") tempCypher += charTemp + "I ";
+        else if (charTemp == "8") tempCypher += charTemp + "I ";
         else tempCypher += charTemp + "AN ";
         charTemp = tempPlain.charAt(i+1);
         i += 1;
     }
     else if (i==stringLength-1) {
-        if (charTemp == ("a" || "i" || "e" || "u" || "o" || 0 || 2 || 4 || 6 || 8)) tempCypher += tempPlain.charAt(i) + charTemp + "I";
+
+      if (charTemp == "i") tempCypher += tempPlain.charAt(i) + charTemp + "I";
+      else if (charTemp == "u") tempCypher += tempPlain.charAt(i) + charTemp + "I";
+      else if (charTemp == "e") tempCypher += tempPlain.charAt(i) + charTemp + "I";
+      else if (charTemp == "o") tempCypher += tempPlain.charAt(i) + charTemp + "I";
+      else if (charTemp == "0") tempCypher += tempPlain.charAt(i) + charTemp + "I";
+      else if (charTemp == "2") tempCypher += tempPlain.charAt(i) + charTemp + "I";
+      else if (charTemp == "4") tempCypher += tempPlain.charAt(i) + charTemp + "I";
+      else if (charTemp == "6") tempCypher += tempPlain.charAt(i) + charTemp + "I";
+      else if (charTemp == "8") tempCypher += tempPlain.charAt(i) + charTemp + "I";
       else tempCypher += tempPlain.charAt(i) + charTemp + "AN";
     }
     else {
@@ -304,6 +322,7 @@ app.controller('personCtrl', function($scope)
 
     }
 
+    if (tempCypher.charAt(stringLength-1) == "&") tempCypher = tempCypher.slice(0,-1);
     $scope.cypherText = tempCypher;
 
   }
