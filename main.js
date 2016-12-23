@@ -8,7 +8,7 @@ let mainWindow
 
 function createWindow()
 {
-	mainWindow = new BrowserWindow({width: 800, height: 600,icon: __dirname + '/salcrypt-logo.png'})
+	mainWindow = new BrowserWindow({width:400, height: 500,icon: __dirname + '/salcrypt-logo.png'})
 	mainWindow.setMenu(null);
 	mainWindow.setResizable(false);
 	mainWindow.loadURL(url.format({
@@ -17,7 +17,7 @@ function createWindow()
 		slashes: true
 	}))
 
-	mainWindow.webContents.openDevTools()
+	// mainWindow.webContents.openDevTools()
 
 	mainWindow.on('closed', function() {
 		mainWindow = null

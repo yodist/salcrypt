@@ -87,9 +87,9 @@ app.controller('personCtrl', function($scope)
 
   collumnNum = Math.ceil((stringLength+1)/4);
   fullCollumn = (stringLength+1)%4;
-  dichead =  (Math.ceil((stringLength+1)/4) * fullCollumn)-1;
+  omegon =  (Math.ceil((stringLength+1)/4) * fullCollumn)-1;
 
-  if (dichead == 0) dichead = stringLength+1;
+  if (omegon == 0) omegon = stringLength+1;
 
 
   while(endofString <= stringLength){
@@ -108,7 +108,7 @@ app.controller('personCtrl', function($scope)
       }
       else pointerA += collumnNum;
       }
-    else { if (pointerA+ (collumnNum -1) <= stringLength && pointerA > dichead) {
+    else { if (pointerA+ (collumnNum -1) <= stringLength && pointerA > omegon) {
       pointerA += (collumnNum - 1);
     }
     else if(pointerA+collumnNum > stringLength) {

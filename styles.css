@@ -10,8 +10,11 @@
 
 .logo-gambar {
   max-height: 50px;
-  margin-bottom: 50px;
   margin-top: 25px;
+}
+
+h3 {
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
 }
 
 body {
@@ -19,22 +22,30 @@ body {
 }
 
 .sub-title-text {
-  font-size: 15px;
-  font-family: "Quicksand";
-  margin-right: 25px;
+  font-size: 20px;
+  font-family: "Courier New";
+  margin-right: 0;
 }
 
 .css-input {
   border-color:#cccccc; border-style:solid; padding:5px;
   font-size:15px; border-width:0px; border-radius:0px;
+  width: 260px;
   font-family:monospace;
   white-space: pre;
+  float: right;
 }
 
 .css-input:focus { outline:none; }
 
 .result-text {
   white-space: pre;
+}
+
+.kotak {
+  display: block;
+  margin: 0 auto;
+  width: 100%
 }
 
 .myButton {
@@ -53,15 +64,16 @@ body {
 	-webkit-border-radius:6px;
 	border-radius:6px;
 	border:1px solid #dcdcdc;
-	display:inline-block;
+	display: block;
 	cursor:pointer;
-	color:#777777;
+	color:#000;
 	font-family:Arial;
-	font-size:15px;
-	font-weight:bold;
-	padding:6px 24px;
+	font-size:12px;
+	padding: 4px 4px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #ffffff;
+  width: 150px;
+  height: 30px;
 }
 .myButton:hover {
 	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed));

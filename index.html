@@ -1,63 +1,76 @@
 <!DOCTYPE html>
 <html>
-  <script src='./node_modules/angular/angular.js'></script>
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-  <!-- Optional theme -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-  <!-- Latest compiled and minified JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  <link rel="stylesheet" type="text/css" href="styles.css" ></style>
-  <title>Salcrypt</title>
+  <head>
+    <script src='./node_modules/angular/angular.js'></script>
+    <script src="./node_modules/jquery/dist/jquery.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>Salcrypt</title>
+  </head>
   <body>
 
     <div class="container" ng-app="myApp" ng-controller="personCtrl">
 
-    <img src="salcrypt-logo-wide.png" alt="Salcrypt Logo" class="img-responsive logo-gambar">
+    <img src="salcrypt-logo.png" alt="Salcrypt Logo" class="img-responsive center-block logo-gambar">
+    <h3 class="text-center">Salcrypt</h3>
+
 
     <!-- ENCRYPTION -->
-    <div class="">
-
+    <div class="center-block kotak">
+      <span class="sub-title-text">Text:</span>
+      <input class="css-input" type="text" ng-model="plainText"><br>
     </div>
-    <span class="sub-title-text">Plain Text:</span> <br>
-    <input class="css-input" type="text" ng-model="plainText"><br>
     <br>
 
-    <span class="result-text">{{cypherText}}</span>
-    <br>
+    <div class="row">
+      <div class="col-xs-6">
+        <button class="myButton" ng-click="subCypher(1)">Substitution Encrypt</button>
+      </div>
+      <div class="col-xs-6">
+        <button  class="myButton"ng-click="subCypher(0)">Substitution Decrypt</button>
+      </div>
+    </div>
 
-    <button class="myButton" ng-click="subCypher(1)">Substitution Encrypt</button>
-    <br>
+    <div class="row">
+      <div class="col-xs-6">
+        <button class="myButton" ng-click="blockCypher()">Block Encrypt</button>
+      </div>
+      <div class="col-xs-6">
+        <button class="myButton" ng-click="blockDecypher()">Block Decrypt</button>
+      </div>
+    </div>
 
-    <button  class="myButton"ng-click="subCypher(0)">Substitution Decrypt</button>
-    <br>
+    <div class="row">
+      <div class="col-xs-6">
+        <button class="myButton" ng-click="permutationCypher()">Permutation Encrypt</button>
+      </div>
+      <div class="col-xs-6">
+        <button class="myButton" ng-click="permutationDecypher()">Permutation Decrypt</button>
+      </div>
+    </div>
 
-    <button class="myButton" ng-click="blockCypher()">Block Encrypt</button>
-    <br>
+    <div class="row">
+      <div class="col-xs-6">
+        <button class="myButton" ng-click="expansionCypher()">Expansion Encrypt</button>
+      </div>
+      <div class="col-xs-6">
+        <button class="myButton" ng-click="expansionDecypher()">Expansion Decrypt</button>
+      </div>
+    </div>
 
-    <button class="myButton" ng-click="blockDecypher()">Block Decrypt</button>
-    <br>
+    <div class="row">
+      <div class="col-xs-6">
+        <button class="myButton" ng-click="compactionCypher()">Compaction Encrypt</button>
+      </div>
+      <div class="col-xs-6">
+        <button class="myButton" ng-click="compactionDecypher()">Compaction Decrypt</button>
+      </div>
+    </div><br><br>
 
-    <button class="myButton" ng-click="permutationCypher()">Permutation Encrypt</button>
-    <br>
-
-    <button class="myButton" ng-click="permutationDecypher()">Permutation Decrypt</button>
-    <br>
-
-    <button class="myButton" ng-click="expansionCypher()">Expansion Encrypt</button>
-    <br>
-
-    <button class="myButton" ng-click="expansionDecypher()">Expansion Decrypt</button>
-    <br>
-
-    <button class="myButton" ng-click="compactionCypher()">Compaction Encrypt</button>
-    <br>
-
-    <button class="myButton" ng-click="compactionDecypher()">Compaction Decrypt</button>
-    <br>
-
+    <div class="center-block kotak">
+      <span class="sub-title-text">Result:</span>
+      <input class="css-input" type="text" ng-model="cypherText" readonly="true"><br>
+    </div>
 
   </div>
   </body>
