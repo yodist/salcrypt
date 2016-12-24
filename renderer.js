@@ -23,6 +23,7 @@ app.controller('personCtrl', function($scope)
   $scope.subCypher = function (opt) {
     tempCypher = "";
     tempPlain = $scope.plainText;
+    tempPlain = tempPlain.toLowerCase();
     stringLength = tempPlain.length;
 
     for (var i = 0; i<stringLength; i++) {
